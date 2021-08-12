@@ -26,8 +26,9 @@ Pile<TYPE>::Pile(Pile const& p) {
 
 template <class TYPE>
 Pile<TYPE>& Pile<TYPE>::operator=(const Pile& p) {
-    if (nbElementMax != p.nbElementMax)
+    if (nbElementMax != p.nbElementMax) {
         data = static_cast<TYPE*>(realloc(data, p.nbElementMax * sizeof(TYPE)));
+    }
 
     nbElementMax = p.nbElementMax;
     nbElement = p.nbElement;
@@ -40,12 +41,14 @@ Pile<TYPE>& Pile<TYPE>::operator=(const Pile& p) {
 
 template <class TYPE>
 bool Pile<TYPE>::operator==(const Pile& p) const {
-    if (p.size() != size())
+    if (p.size() != size()) {
         return false;
+    }
 
     for (unsigned int i = 0; i < size(); i++) {
-        if (p.data[i] != data[i])
+        if (p.data[i] != data[i]) {
             return false;
+        }
     }
     return true;
 }
