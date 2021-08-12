@@ -27,6 +27,7 @@ jobs:
     
     - name: Check
       run: cmake --build ${{github.workspace}}/build --target cppcheck
+      run: clang-tidy-11 src/* -- -I include/
 
     - name: Test
       working-directory: ${{github.workspace}}/build
