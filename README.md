@@ -1,1 +1,2 @@
-# skeleton-cpp
+# Skeleton C++
+
