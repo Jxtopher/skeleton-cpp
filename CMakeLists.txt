@@ -83,6 +83,11 @@ target_include_directories(${PROJECT_NAME} PRIVATE modules)
 
 target_link_libraries(${PROJECT_NAME} ${LIBPROJECT})
 
+add_custom_target(run
+    COMMAND ${PROJECT_NAME}
+    DEPENDS ${PROJECT_NAME}
+    WORKING_DIRECTORY ${CMAKE_PROJECT_DIR}
+)
 ###############################################################################
 # Tests
 ###############################################################################
