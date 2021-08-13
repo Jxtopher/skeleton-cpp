@@ -14,6 +14,6 @@ SET(PROJECT_TRDPARTY_DIR third-party)
 
 add_custom_target(
         cppcheck
-        COMMAND ${CPPCHECK_EXECUTABLE} --enable=all --error-exitcode=1 --quiet --template="[{severity}][{id}] {message} {callstack} \(On {file}:{line}\)" --language=c++  --std=c++11  -I ../include/ -I ./generated/  ../src/* ../apps test/unit/*
+        COMMAND ${CPPCHECK_EXECUTABLE} --enable=all  --suppressions-list=../cppcheck-suppress --error-exitcode=1 --quiet --template="[{severity}][{id}] {message} {callstack} \(On {file}:{line}\)" --language=c++  --std=c++11  -I ../include/ -I ./generated/  ../src/* ../apps test/unit/*
 )
 ## < cppcheck
