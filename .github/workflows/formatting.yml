@@ -4,10 +4,10 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - 'test/unit'
-      - 'src'
-      - 'include'
-      - 'apps'
+      - 'test/unit/**'
+      - 'src/**'
+      - 'include/**'
+      - 'apps/**'
 env:
   BUILD_TYPE: Release
 
