@@ -8,7 +8,7 @@ on:
       - 'src'
       - 'include'
       - 'apps'
-
+      
   pull_request:
     branches: [ main ]
     paths:
@@ -38,8 +38,8 @@ jobs:
     - name: Check 1 -> cppcheck
       run: cmake --build ${{github.workspace}}/build --target cppcheck
 
-    # - name: Check 2 -> clang-tidy
-    #   run: clang-tidy-11 src/* -- -I include/
+    - name: Check 2 -> clang-tidy
+      run: clang-tidy-11 src/* -- -I include/
 
     - name: Test
       working-directory: ${{github.workspace}}/build
