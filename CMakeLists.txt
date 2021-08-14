@@ -73,7 +73,6 @@ target_include_directories(${LIBPROJECT} PRIVATE src)
 IF(Boost_FOUND)
     target_link_libraries(${LIBPROJECT} LINK_PRIVATE ${Boost_LIBRARIES})
 ENDIF()
-
 # target_include_directories(${LIBPROJECT} PRIVATE modules)
 
 
