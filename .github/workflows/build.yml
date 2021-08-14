@@ -3,9 +3,19 @@ name: CMake
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'test/unit'
+      - 'src'
+      - 'include'
+      - 'apps'
+      
   pull_request:
     branches: [ main ]
-
+    paths:
+      - 'test/unit'
+      - 'src'
+      - 'include'
+      - 'apps'
 env:
   BUILD_TYPE: Release
 
@@ -17,7 +27,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Install package
-      run: sudo apt-get -y install libcppunit-dev cppcheck clang-tidy-11
+      run: sudo apt-get -y install libcppunit-dev cppcheck clang-tidy-11 libboost-program-options-dev
 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}

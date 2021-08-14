@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.12)
 ###############################################################################
 # Set of compilator parameters
 ###############################################################################
-project(toto)
+project(skeleton)
 
 set(CMAKE_BUILD_TYPE Release) # (Release|Debug)
 set(CMAKE_CXX_STANDARD 20) #-std=c++2a 
@@ -49,6 +49,12 @@ if(Git_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
 endif()
 
 ###############################################################################
+# Get external libs
+###############################################################################
+find_package(PkgConfig)
+find_package(Boost 1.40 COMPONENTS program_options REQUIRED)
+
+###############################################################################
 # LIBRARIES Alpha-graph
 ###############################################################################
 set(LIBPROJECT lib${PROJECT_NAME})
@@ -62,15 +68,11 @@ set_target_properties(${LIBPROJECT} PROPERTIES SOVERSION 1)
 set_target_properties(${LIBPROJECT} PROPERTIES PUBLIC_HEADER include/alphagraph.h)
 set_target_properties(${LIBPROJECT} PROPERTIES COMPILE_FLAGS ${FLAGS})
 set_target_properties(${LIBPROJECT} PROPERTIES CMAKE_STATIC_LIBRARY_PREFIX "")
-
 target_include_directories(${LIBPROJECT} PRIVATE include)
 target_include_directories(${LIBPROJECT} PRIVATE src)
-# target_include_directories(${LIBPROJECT} PRIVATE modules)
+target_link_libraries(${LIBPROJECT} LINK_PRIVATE ${Boost_LIBRARIES})
 
-###############################################################################
-# Get external libs
-###############################################################################
-find_package(PkgConfig)
+# target_include_directories(${LIBPROJECT} PRIVATE modules)
 
 
 ###############################################################################
