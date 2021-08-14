@@ -1,7 +1,7 @@
 #include "pile.h"
 
 template <class TYPE>
-Pile<TYPE>::Pile() {
+Pile            <TYPE>::Pile() {
     data = new TYPE[0];
     nbElementMax = 0;
     nbElement = 0;
