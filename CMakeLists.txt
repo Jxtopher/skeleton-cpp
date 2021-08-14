@@ -70,9 +70,8 @@ set_target_properties(${LIBPROJECT} PROPERTIES COMPILE_FLAGS ${FLAGS})
 set_target_properties(${LIBPROJECT} PROPERTIES CMAKE_STATIC_LIBRARY_PREFIX "")
 target_include_directories(${LIBPROJECT} PRIVATE include)
 target_include_directories(${LIBPROJECT} PRIVATE src)
-IF(Boost_FOUND)
-    target_link_libraries(${LIBPROJECT} LINK_PRIVATE ${Boost_LIBRARIES})
-ENDIF()
+target_link_libraries(${LIBPROJECT} LINK_PRIVATE ${Boost_LIBRARIES})
+
 # target_include_directories(${LIBPROJECT} PRIVATE modules)
 
 
