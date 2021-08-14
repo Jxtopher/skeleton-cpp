@@ -53,9 +53,6 @@ endif()
 ###############################################################################
 find_package(PkgConfig)
 find_package(Boost 1.40 COMPONENTS program_options REQUIRED)
-IF(Boost_FOUND)
-    target_link_libraries(${LIBPROJECT} LINK_PRIVATE ${Boost_LIBRARIES})
-ENDIF()
 
 ###############################################################################
 # LIBRARIES Alpha-graph
@@ -73,6 +70,10 @@ set_target_properties(${LIBPROJECT} PROPERTIES COMPILE_FLAGS ${FLAGS})
 set_target_properties(${LIBPROJECT} PROPERTIES CMAKE_STATIC_LIBRARY_PREFIX "")
 target_include_directories(${LIBPROJECT} PRIVATE include)
 target_include_directories(${LIBPROJECT} PRIVATE src)
+IF(Boost_FOUND)
+    target_link_libraries(${LIBPROJECT} LINK_PRIVATE ${Boost_LIBRARIES})
+ENDIF()
+
 # target_include_directories(${LIBPROJECT} PRIVATE modules)
 
 
