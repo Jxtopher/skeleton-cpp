@@ -3,3 +3,10 @@
 --------------------------------
 # Skeleton C++
 
+## Who use ?
+
+Change the project name in CMakeLists.txt :
+
+  project(Your name projet)
+
+
