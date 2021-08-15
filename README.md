@@ -14,7 +14,7 @@ sudo apt-get -y install libcppunit-dev cppcheck clang-format-11 clang-tidy-11 li
 Change the project name in CMakeLists.txt
 
 ```cmake
-  project(Your name projet)
+project(Your name projet)
 ```
 
 Compile the project
