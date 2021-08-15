@@ -7,6 +7,9 @@
 
 Change the project name in CMakeLists.txt :
 
+```cmake
   project(Your name projet)
+```
+
 
 
