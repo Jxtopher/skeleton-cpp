@@ -55,7 +55,7 @@ find_package(PkgConfig)
 find_package(Boost 1.40 COMPONENTS program_options REQUIRED)
 
 ###############################################################################
-# LIBRARIES Alpha-graph
+# Library of the project
 ###############################################################################
 set(LIBPROJECT lib${PROJECT_NAME})
 
