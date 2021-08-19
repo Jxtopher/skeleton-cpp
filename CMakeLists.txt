@@ -52,7 +52,6 @@ endif()
 # Get external libs
 ###############################################################################
 find_package(PkgConfig)
-find_package(Boost 1.40 COMPONENTS program_options REQUIRED)
 
 ###############################################################################
 # Library of the project
@@ -70,7 +69,6 @@ set_target_properties(${LIBPROJECT} PROPERTIES COMPILE_FLAGS ${FLAGS})
 set_target_properties(${LIBPROJECT} PROPERTIES CMAKE_STATIC_LIBRARY_PREFIX "")
 target_include_directories(${LIBPROJECT} PRIVATE include)
 target_include_directories(${LIBPROJECT} PRIVATE src)
-target_link_libraries(${LIBPROJECT} LINK_PRIVATE ${Boost_LIBRARIES})
 
 # target_include_directories(${LIBPROJECT} PRIVATE modules)
 
