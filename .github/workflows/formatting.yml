@@ -25,7 +25,7 @@ jobs:
 
     - name: Format
       run: |
-        clang-format-11 -style=file -i  test/unit/* src/* include/*
+        clang-format-11 -style=file -i $(find test/unit/ src/ include/ -type f)
 
     - name: Commit report
       run: |
