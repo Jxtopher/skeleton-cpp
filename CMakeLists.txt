@@ -63,6 +63,7 @@ file(GLOB_RECURSE ALL_SOURCE_FILES  "src/*.cpp")
 add_library(${LIBPROJECT} SHARED ${ALL_SOURCE_FILES})
 
 # set_target_properties(${LIBPROJECT} PROPERTIES VERSION ${PROJECT_VERSION})
+set_target_properties(${LIBPROJECT} PROPERTIES PREFIX "")
 set_target_properties(${LIBPROJECT} PROPERTIES SOVERSION 1)
 set_target_properties(${LIBPROJECT} PROPERTIES PUBLIC_HEADER include/alphagraph.h)
 set_target_properties(${LIBPROJECT} PROPERTIES COMPILE_FLAGS ${FLAGS})
