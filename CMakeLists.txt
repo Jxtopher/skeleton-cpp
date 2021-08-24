@@ -52,7 +52,7 @@ endif()
 # Get external libs
 ###############################################################################
 find_package(PkgConfig)
-find_package(Boost 1.40 COMPONENTS program_options REQUIRED)
+find_package(Boost 1.71 COMPONENTS program_options REQUIRED)
 
 ###############################################################################
 # Library of the project
