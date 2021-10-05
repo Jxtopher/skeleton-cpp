@@ -9,8 +9,8 @@ set(CMAKE_BUILD_TYPE Release) # (Release|Debug)
 set(CMAKE_CXX_STANDARD 20) #-std=c++2a 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(FLAGS "-pthread -fopenmp \
--pedantic -Wall -Wextra -Wcast-align -Wctor-dtor-privacy \
+set(CMAKE_CXX_COMPILER_LAUNCHER "ccache")
+set(FLAGS "-pedantic -Wall -Wextra -Wcast-align -Wctor-dtor-privacy \
 -Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op \
 -Wmissing-include-dirs -Wnoexcept -Wno-unused -Wshadow \
 -Woverloaded-virtual -Wredundant-decls -Wsign-promo \
@@ -53,6 +53,13 @@ endif()
 ###############################################################################
 find_package(PkgConfig)
 find_package(Boost 1.71 COMPONENTS program_options REQUIRED)
+find_package(Threads REQUIRED)
+find_package(OpenMP)
+if (OPENMP_FOUND)
+    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+    set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+endif()
 
 ###############################################################################
 # Library of the project
@@ -84,6 +91,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE include)
 target_include_directories(${PROJECT_NAME} PRIVATE modules)
 
 target_link_libraries(${PROJECT_NAME} ${LIBPROJECT})
+target_link_libraries(${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT})
 
 add_custom_target(run
     COMMAND ${PROJECT_NAME}
