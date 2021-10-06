@@ -109,13 +109,12 @@ file(GLOB_RECURSE ALL_SOURCE_FILES  "test/unit/*.cpp")
 foreach (SOURCE_FILE ${ALL_SOURCE_FILES})
     get_filename_component(NAME_FILE ${SOURCE_FILE} NAME_WE)
     add_executable(${NAME_FILE}.test ${SOURCE_FILE})
-    target_link_libraries(${NAME_FILE}.test LINK_PRIVATE
-    ${LIBPROJECT})
+    target_link_libraries(${NAME_FILE}.test LINK_PRIVATE ${LIBPROJECT} gcov)
     target_include_directories(${NAME_FILE}.test PRIVATE 
         "include/"
         "/usr/local/include/"
     )
-    set_target_properties(${NAME_FILE}.test PROPERTIES COMPILE_FLAGS ${FLAGS})
+    set_target_properties(${NAME_FILE}.test PROPERTIES COMPILE_FLAGS "${FLAGS} -fprofile-arcs -ftest-coverage")
     add_test(NAME ${NAME_FILE} COMMAND ${NAME_FILE}.test WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
 endforeach()
 
