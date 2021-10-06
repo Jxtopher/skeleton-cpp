@@ -8,7 +8,7 @@ on:
       - 'src/**'
       - 'include/**'
       - 'apps/**'
-      - 'workflows/**'
+      - '.github/workflows/**'
       
   pull_request:
     branches: [ main ]
