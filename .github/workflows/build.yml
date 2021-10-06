@@ -8,6 +8,7 @@ on:
       - 'src/**'
       - 'include/**'
       - 'apps/**'
+      - 'workflows/**'
       
   pull_request:
     branches: [ main ]
