@@ -101,14 +101,17 @@ add_custom_target(run
 ###############################################################################
 # Tests
 ###############################################################################
-pkg_check_modules(CPPUNIT cppunit)
+pkg_check_modules(CPPUNIT cppunit REQUIRED)
 
 enable_testing()
 file(GLOB_RECURSE ALL_SOURCE_FILES  "test/unit/*.cpp")
 foreach (SOURCE_FILE ${ALL_SOURCE_FILES})
     get_filename_component(NAME_FILE ${SOURCE_FILE} NAME_WE)
     add_executable(${NAME_FILE}.test ${SOURCE_FILE})
-    target_link_libraries(${NAME_FILE}.test LINK_PRIVATE ${CPPUNIT_LIBRARIES} ${LIBPROJECT} gcov)
+    target_link_libraries(${NAME_FILE}.test LINK_PRIVATE
+        ${CPPUNIT_LIBRARIES}
+        ${LIBPROJECT}
+        gcov)
     target_include_directories(${NAME_FILE}.test PRIVATE 
         "include/"
         "/usr/local/include/"
