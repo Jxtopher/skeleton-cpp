@@ -3,25 +3,24 @@ FROM debian:11
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN echo "Acquire::http::Proxy \"http://192.168.42.154:8000\";" > /etc/apt/apt.conf.d/00aptproxy
+RUN echo "Acquire::http::Proxy \"http://192.168.1.72:8000\";" > /etc/apt/apt.conf.d/00aptproxy
 RUN apt-get update -y && \ 
-    apt-get install -y build-essential \
-                       cmake \
-                       libcppunit-dev \
-                       cppcheck \
-                       clang-tidy \
-                       libboost-program-options-dev \
-                       ccache \
-                       gcovr \
-                       pkg-config \
-                       python3
+apt-get install -y build-essential \
+cmake \
+libcppunit-dev \
+cppcheck \
+clang-tidy \
+libboost-program-options-dev \
+ccache \
+gcovr \
+pkg-config \
+python3
 
 COPY . /usr/src/app
-WORKDIR /usr/src/app/build
+WORKDIR /usr/src/app/
 
 RUN rm -rf /usr/src/app/build/*
-RUN cmake ..
-RUN make -j $(nproc)
+RUN cmake -B /usr/src/app/build -DCMAKE_BUILD_TYPE=Release
+RUN cmake --build /usr/src/app/build --config Release -j ${nproc}
 
-# Run the program output from the previous step
-CMD ["./skeleton"]
+WORKDIR /usr/src/app/build/
