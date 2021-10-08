@@ -1,5 +1,4 @@
-# Get the GCC preinstalled image from Docker Hub
-FROM debian:11
+FROM gcc:11
 
 ARG DEBIAN_FRONTEND=noninteractive
 
