@@ -24,4 +24,4 @@ jobs:
         run: docker pull hadolint/hadolint:latest-debian
       
       - name: Check Dockerfile -> debian-gcc.Dockerfile
-        run: docker run --rm -i hadolint/hadolint < .docker/debian-gcc.Dockerfile
+        run: docker run --rm -i hadolint/hadolint --ignore DL3008 < .docker/debian-gcc.Dockerfile
