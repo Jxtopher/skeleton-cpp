@@ -3,6 +3,8 @@ FROM gcc:11
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN echo "Acquire::http::Proxy \"http://192.168.1.72:8000\";" > /etc/apt/apt.conf.d/00aptproxy
+
+# Package installation 
 RUN apt-get update -y && \ 
 apt-get install -y --no-install-recommends build-essential \
 cmake \
@@ -20,8 +22,8 @@ python3 \
 COPY . /usr/src/app
 WORKDIR /usr/src/app/
 
-RUN rm -rf /usr/src/app/build/*                                    \
-&& cmake -B /usr/src/app/build -DCMAKE_BUILD_TYPE=Release          \
-&& cmake --build /usr/src/app/build --config Release -j ${nproc}   \
+RUN rm -rf /usr/src/app/build/* \
+&& cmake -B /usr/src/app/build -DCMAKE_BUILD_TYPE=Release \
+&& cmake --build /usr/src/app/build --config Release -j ${nproc} \
 
 WORKDIR /usr/src/app/build/
