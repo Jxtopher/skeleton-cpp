@@ -1,0 +1,17 @@
+name: "lint"
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Get container
+        run: docker pull hadolint/hadolint:latest-debian
+      
+      - name: Check Dockerfile -> debian-gcc.Dockerfile
+        run: docker run --rm -i hadolint/hadolint < .docker/debian-gcc.Dockerfile
