@@ -3,7 +3,7 @@ FROM gcc:11
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN echo "Acquire::http::Proxy \"http://192.168.1.72:8000\";" > /etc/apt/apt.conf.d/00aptproxy
-RUN apt-get update -y && \ 
+RUN apt-get update && \ 
 apt-get install -y build-essential \
 cmake \
 libcppunit-dev \
