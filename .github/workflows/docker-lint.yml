@@ -1,6 +1,12 @@
 name: "lint"
 
-on: [push, pull_request]
+on: 
+  push:
+      - '.docker/**'
+      - '.github/workflows/**'
+  pull_request:
+      - '.docker/**'
+      - '.github/workflows/**'
 
 jobs:
   build:
