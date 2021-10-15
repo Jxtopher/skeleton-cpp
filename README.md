@@ -42,6 +42,6 @@ make run
 | make example.test      |  run single test in particular **example.test** |       
 
 
-## Référence
+## References
 - https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
 
