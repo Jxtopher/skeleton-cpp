@@ -8,7 +8,7 @@
 Install packages
 
 ```bash
-sudo apt-get -y install pkg-config libcppunit-dev cppcheck clang-format-11 clang-tidy-11 libboost-program-options-dev
+sudo apt-get -y install ccache pkg-config libcppunit-dev cppcheck clang-format-11 clang-tidy-11 libboost-program-options-dev
 ```
 
 Change the project name in CMakeLists.txt
