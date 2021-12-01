@@ -5,19 +5,19 @@
 
 ## Dockerization
 
-### Dev environnement
+* Dev environnement
 
 ```bash
 $ launch-docker.sh dev
 ```
 
-### Prod environnement
+* Prod environnement
 
 ```bash
 $ launch-docker.sh prod
 ```
 
-### Compilation matrix
+* Compilation matrix
 
 ```bash
 $ launch-docker.sh matrix
