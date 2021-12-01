@@ -3,7 +3,27 @@
 --------------------------------
 # Skeleton C++
 
-## Who use ?
+## Dockerization
+
+### Dev environnement
+
+```bash
+$ launch-docker.sh dev
+```
+
+### Prod environnement
+
+```bash
+$ launch-docker.sh prod
+```
+
+### Compilation matrix
+
+```bash
+$ launch-docker.sh matrix
+```
+
+## Compilation
 
 Install packages
 
