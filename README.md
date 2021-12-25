@@ -14,7 +14,7 @@ sudo apt-get -y install ccache pkg-config libcppunit-dev cppcheck clang-format-1
 Change the project name in CMakeLists.txt
 
 ```cmake
-project(Your name projet)
+project(Your project name)
 ```
 
 Compile the project
@@ -33,7 +33,7 @@ make run
 
 ##  Available commands
 
-| Command                | Explication                                     |
+| Command                | Explanation                                     |
 |------------------------|-------------------------------------------------|
 | make run               |  run main application                           |
 | make test              |  run all tests                                  |
