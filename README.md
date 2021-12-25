@@ -25,13 +25,13 @@ cmake ..
 make
 ```
 
-Run app
+Run the application
 
 ```bash
 make run
 ```
 
-## Commands available
+##  Available commands
 
 | Command                | Explication                                     |
 |------------------------|-------------------------------------------------|
