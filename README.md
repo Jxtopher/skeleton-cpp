@@ -3,7 +3,7 @@
 --------------------------------
 # Skeleton C++
 
-## Usage ?
+## Usage
 
 Install packages
 
