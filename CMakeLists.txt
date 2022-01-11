@@ -10,12 +10,24 @@ set(CMAKE_CXX_STANDARD 20) #-std=c++2a
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_COMPILER_LAUNCHER "ccache")
-set(FLAGS "-pedantic -Wall -Wextra -Wcast-align -Wctor-dtor-privacy \
--Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op \
--Wmissing-include-dirs -Wnoexcept -Wno-unused -Wshadow \
--Woverloaded-virtual -Wredundant-decls -Wsign-promo \
--Wstrict-null-sentinel -Wstrict-overflow=5 -Wundef -Werror \
--Wswitch-default -Wsign-conversion -Wcast-qual -Wold-style-cast") # -Wmissing-declarations 
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  # using Clang
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  # using GCC
+  set(FLAGS "-pedantic -Wall -Wextra -Wcast-align -Wctor-dtor-privacy \
+  -Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op \
+  -Wmissing-include-dirs -Wnoexcept -Wno-unused -Wshadow \
+  -Woverloaded-virtual -Wredundant-decls -Wsign-promo \
+  -Wstrict-null-sentinel -Wstrict-overflow=5 -Wundef -Werror \
+  -Wswitch-default -Wsign-conversion -Wcast-qual -Wold-style-cast") # -Wmissing-declarations 
+  set(COV_FLAGS "-fprofile-arcs -ftest-coverage")
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Intel")
+  # using Intel C++
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+  # using Visual Studio C++
+endif()
+
 set(CMAKE_CXX_FLAGS_DEBUG "-g3 -DDEBUG")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 
@@ -116,7 +128,7 @@ foreach (SOURCE_FILE ${ALL_SOURCE_FILES})
         "include/"
         "/usr/local/include/"
     )
-    set_target_properties(${NAME_FILE}.test PROPERTIES COMPILE_FLAGS "${FLAGS} -fprofile-arcs -ftest-coverage")
+    set_target_properties(${NAME_FILE}.test PROPERTIES COMPILE_FLAGS "${FLAGS} ${COV_FLAGS}")
     add_test(NAME ${NAME_FILE} COMMAND ${NAME_FILE}.test WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
 endforeach()
 

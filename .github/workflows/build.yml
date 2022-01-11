@@ -2,21 +2,16 @@ name: CMake
 
 on:
   push:
-    branches: [ main ]
     paths:
-      - 'test/unit/**'
-      - 'src/**'
-      - 'include/**'
-      - 'apps/**'
+      - '**.cpp'
+      - '**.hpp'
       - '.github/workflows/**'
       
   pull_request:
     branches: [ main ]
     paths:
-      - 'test/unit/**'
-      - 'src/**'
-      - 'include/**'
-      - 'apps/**'
+      - '**.cpp'
+      - '**.hpp'
 env:
   BUILD_TYPE: Release
 

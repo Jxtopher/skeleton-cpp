@@ -1,0 +1,27 @@
+name: "Docker lint"
+
+on: 
+  pull_request:
+    paths:
+      - '.docker/**'
+      - '.github/workflows/**'
+
+  push:
+    paths:
+      - '.docker/**'
+      - '.github/workflows/**'
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Check Dockerfile -> debian-gcc.Dockerfile
+        run: docker run --rm -i hadolint/hadolint hadolint --ignore DL3008  - < .docker/debian-gcc.Dockerfile 
+
+      - name: Check Dockerfile -> debian-clang.Dockerfile
+        run: docker run --rm -i hadolint/hadolint hadolint --ignore DL3008  - < .docker/dev.Dockerfile
