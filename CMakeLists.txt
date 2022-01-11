@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.12)
 ###############################################################################
 # Set of compilator parameters
 ###############################################################################
-project(skeleton)
+project(skeleton-cpp)
 
 set(CMAKE_BUILD_TYPE Release) # (Release|Debug)
 set(CMAKE_CXX_STANDARD 20) #-std=c++2a 
