@@ -1,8 +1,11 @@
+#define ClassTest Pile_test
+
 #include "pile.h"
+
 #include "test.h"
 
-class Pile_test : public CppUnit::TestFixture {
-    CPPUNIT_TEST_SUITE(Pile_test);
+class ClassTest : public CppUnit::TestFixture {
+    CPPUNIT_TEST_SUITE(ClassTest);
     CPPUNIT_TEST(push);
     CPPUNIT_TEST(size);
     CPPUNIT_TEST(isEmpty);
@@ -67,4 +70,4 @@ class Pile_test : public CppUnit::TestFixture {
     unsigned int number_of_iterations;
 };
 
-CPPUNIT_TEST_SUITE_REGISTRATION(Pile_test);
+CPPUNIT_TEST_SUITE_REGISTRATION(ClassTest);
