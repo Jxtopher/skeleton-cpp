@@ -97,19 +97,23 @@ target_link_libraries(${LIBPROJECT} LINK_PRIVATE ${Boost_LIBRARIES})
 ###############################################################################
 # APPS
 ###############################################################################
-add_executable(${PROJECT_NAME} apps/main.cpp)
+file(GLOB LIST_OF_FILES  apps/*.cpp)
+foreach(PATH_FILE  ${LIST_OF_FILES})
+    get_filename_component(NAME_FILE ${PATH_FILE} NAME_WE)
+    add_executable(${PROJECT_NAME}-${NAME_FILE} ${PATH_FILE})
 
-target_include_directories(${PROJECT_NAME} PRIVATE include)
-target_include_directories(${PROJECT_NAME} PRIVATE modules)
+    target_include_directories(${PROJECT_NAME}-${NAME_FILE} PRIVATE include)
+    target_include_directories(${PROJECT_NAME}-${NAME_FILE} PRIVATE modules)
 
-target_link_libraries(${PROJECT_NAME} ${LIBPROJECT})
-target_link_libraries(${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT})
+    target_link_libraries(${PROJECT_NAME}-${NAME_FILE} ${LIBPROJECT})
+    target_link_libraries(${PROJECT_NAME}-${NAME_FILE} ${PNG_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME}-${NAME_FILE} ${CMAKE_THREAD_LIBS_INIT})
 
-add_custom_target(run
-    COMMAND ${PROJECT_NAME}
-    DEPENDS ${PROJECT_NAME}
-    WORKING_DIRECTORY ${CMAKE_PROJECT_DIR}
-)
+    install(TARGETS ${PROJECT_NAME}-${NAME_FILE} ${LIBPROJECT}
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION lib
+    )
+endforeach()
 ###############################################################################
 # Tests
 ###############################################################################
@@ -142,13 +146,3 @@ foreach(PATH_FILE  ${LIST_OF_FILES})
     get_filename_component(FILE ${PATH_FILE} NAME)
     add_test(NAME ${FILE} COMMAND ${Python3_EXECUTABLE} ${PATH_FILE} "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}" WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
 endforeach()
-
-
-###############################################################################
-# Install
-###############################################################################
-install(TARGETS ${PROJECT_NAME} ${STOCOS_CONTINUOUS_PROBLEM_LIBRARIES} ${STOCOS_LIBRARIES}
-    RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
-    PUBLIC_HEADER DESTINATION include/stocos
-)

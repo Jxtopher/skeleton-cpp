@@ -1,4 +1,4 @@
-FROM gcc:11
+FROM gcc:11.2.0
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -13,6 +13,7 @@ libboost-program-options-dev \
 ccache \
 gcovr \
 pkg-config \
+doxygen \
 python3 \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
