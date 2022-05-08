@@ -1,7 +1,9 @@
 {
     "recommendations": [
         "aaron-bond.better-comments", 
+        "alefragnani.bookmarks",
         "ms-vscode.cpptools", 
-        "twxs.cmake"
+        "twxs.cmake",
+        "vscode.cpptools-themes"
     ]
 }
