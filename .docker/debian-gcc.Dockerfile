@@ -15,6 +15,7 @@ gcovr \
 pkg-config \
 doxygen \
 python3 \
+graphviz \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
