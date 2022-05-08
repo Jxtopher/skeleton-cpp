@@ -1,9 +1,10 @@
 {
     "recommendations": [
-        "aaron-bond.better-comments", 
+        "aaron-bond.better-comments",
         "alefragnani.bookmarks",
-        "ms-vscode.cpptools", 
-        "twxs.cmake",
-        "vscode.cpptools-themes"
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.cpptools-themes",
+        "twxs.cmake"
     ]
 }
