@@ -1,4 +1,4 @@
-FROM gcc:11.2.0
+FROM gcc:12.1.0
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -16,14 +16,12 @@ RUN apt-get update -y && \
     doxygen \
     python3 \
     graphviz \
+    sudo \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && useradd -ms /bin/bash user \
+    && chmod 660 /etc/sudoers && echo "user ALL=NOPASSWD: ALL" >> /etc/sudoers && chmod 400 /etc/sudoers
 
-COPY . /usr/src/app
-WORKDIR /usr/src/app/
+WORKDIR /app
 
-RUN rm -rf /usr/src/app/build/*                                    \
-    && cmake -B /usr/src/app/build -DCMAKE_BUILD_TYPE=Release          \
-    && cmake --build /usr/src/app/build --config Release -j "$(nproc)"
-
-WORKDIR /usr/src/app/build/
+ENTRYPOINT ["su", "user"]
