@@ -3,6 +3,7 @@ name: "Docker lint"
 on: 
   pull_request:
     paths:
+      - '.devcontainer/**'
       - '.docker/**'
       - '.github/workflows/**'
 
@@ -24,4 +25,4 @@ jobs:
         run: docker run --rm -i hadolint/hadolint hadolint --ignore DL3008  - < .docker/debian-gcc.Dockerfile 
 
       - name: Check Dockerfile -> debian-clang.Dockerfile
-        run: docker run --rm -i hadolint/hadolint hadolint --ignore DL3008  - < .docker/dev.Dockerfile
+        run: docker run --rm -i hadolint/hadolint hadolint --ignore DL3008  - < .devcontainer/Dockerfile
