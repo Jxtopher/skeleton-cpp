@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Package installation 
 RUN apt-get update -y && \ 
-    apt-get install -y --no-install-recommends build-essential \
+    apt-get install -y --no-install-recommends git build-essential \
     cmake \
     libcppunit-dev \
     cppcheck \
