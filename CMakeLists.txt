@@ -17,9 +17,9 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   # using GCC
   set(FLAGS "-pedantic -Wall -Wextra -Wcast-align -Wctor-dtor-privacy \
   -Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op \
-  -Wmissing-include-dirs -Wnoexcept -Wno-unused -Wshadow \
+  -Wmissing-include-dirs -Wno-unused -Wshadow \
   -Woverloaded-virtual -Wredundant-decls -Wsign-promo \
-  -Wstrict-null-sentinel -Wstrict-overflow=5 -Wundef -Werror \
+  -Wstrict-null-sentinel -Wstrict-overflow=2 -Wundef -Werror \
   -Wswitch-default -Wsign-conversion -Wcast-qual -Wold-style-cast") # -Wmissing-declarations 
   set(COV_FLAGS "-fprofile-arcs -ftest-coverage")
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Intel")

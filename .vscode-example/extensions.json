@@ -7,6 +7,7 @@
         "ms-vscode.cpptools",
         "ms-vscode.cpptools-extension-pack",
         "ms-vscode.cpptools-themes",
-        "twxs.cmake"
+        "twxs.cmake",
+        "wk-j.save-and-run"
     ]
 }

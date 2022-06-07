@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.234.0/containers/docker-existing-dockerfile
 {
-	"name": "Existing Dockerfile",
+	"name": "skeleton-cpp",
 	// Sets the run context to one level up instead of the .devcontainer folder.
 	"context": "..",
 	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
@@ -17,7 +17,8 @@
 		"ms-vscode.cpptools",
 		"ms-vscode.cpptools-extension-pack",
 		"ms-vscode.cpptools-themes",
-		"twxs.cmake"
+		"twxs.cmake",
+		"wk-j.save-and-run"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
