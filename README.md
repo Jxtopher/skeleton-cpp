@@ -12,7 +12,7 @@ You can use this project as template for start a new CPP project. We follow:
 
 You can activate the development environment in using VScode, the "Remote - Containers" plugin[^1]  and Docker and open. In VScode open the directory in a container. 
 
-[^1] ms-vscode-remote.remote-containers
+[^1]: ms-vscode-remote.remote-containers
 
 ## Usages
 
