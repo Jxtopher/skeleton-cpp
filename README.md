@@ -2,7 +2,12 @@
 ![Build](https://github.com/Jxtopher/skeleton-cpp/actions/workflows/build.yml/badge.svg) 
 <a href="#"><img src="https://img.shields.io/badge/C++-20-blue.svg?style=flat-square"></a>
 
-## Usage
+You can use this project as template for start a new CPP project. We follow:
+ - CPP [Guid lines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines).
+ - a beautiful CI/CD with Github action
+ - unit test and integration test with Python
+
+## Usages
 
 Install packages
 
