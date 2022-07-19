@@ -8,16 +8,25 @@ You can use this project as template for start a new CPP project. We follow:
  - unit test and integration test with Python
  - Dockerizing for the production and developpement environnement
 
-## Ready to code
+## Architecture
 
-You can activate the development environment in using VScode, the "Remote - Containers" plugin[^1]  and Docker and open. In VScode open the directory in a container. 
+| Directory              | Explanation                                                                                          |
+|------------------------|------------------------------------------------------------------------------------------------------|
+| apps/                  | you can have several files each with the main function, an executable is generated for each of them  |
+| include/               | container all *.hpp and *.h                                                                          |
+| src/                   | container all *.cpp                                                                                  |
+| test/                  | unit tests and integration tests                                                                     |
+
+
+## Ready to code via a container
+
+You can activate the development environment in using VScode, the "Remote - Containers" plugin[^1]  and Docker and open. In VScode open the directory in container. 
 
 [^1]: ms-vscode-remote.remote-containers
 
-## Usages
+## Usages 
 
-
-
+You can compile and execute the program as follow
 
 Install packages
 
