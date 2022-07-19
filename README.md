@@ -6,8 +6,18 @@ You can use this project as template for start a new CPP project. We follow:
  - CPP [Guid lines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines).
  - a beautiful CI/CD with Github action
  - unit test and integration test with Python
+ - Dockerizing for the production and developpement environnement
+
+## Ready to code
+
+You can activate the development environment in using VScode, the "Remote - Containers" plugin[^1]  and Docker and open. In VScode open the directory in a container. 
+
+[^1] ms-vscode-remote.remote-containers
 
 ## Usages
+
+
+
 
 Install packages
 
